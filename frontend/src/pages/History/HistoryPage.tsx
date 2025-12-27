@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { client } from "../../api/axiosConfig";
 import { AnimatePresence } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
@@ -33,10 +33,13 @@ const HistoryPage = () => {
           const userId = session.user.id;
 
           // 3. userId를 쿼리 스트링으로 전달 (백엔드 @Query('userId')와 매칭)
-          const response = await axios.get(
-            `http://localhost:3000/history`,
-            { params: { userId } }, // ?userId=UUID 형태로 전송됨
-          );
+          const response = await client.get(`/history`, {
+            params: { userId },
+          });
+          // const response = await axios.get(
+          //   `http://localhost:3000/history`,
+          //   { params: { userId } }, // ?userId=UUID 형태로 전송됨
+          // );
 
           setHistory(response.data);
         } catch {
