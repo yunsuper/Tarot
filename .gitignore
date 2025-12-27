@@ -1,0 +1,27 @@
+# Dependency folders
+node_modules/
+
+# Local env files (중요! API 키 유출 방지)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+
+# Prisma
+/backend/prisma/dev.db
+/backend/prisma/dev.db-journal

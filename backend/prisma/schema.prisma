@@ -1,0 +1,30 @@
+// ✅ 버전 v5.22에 맞게 확장모드 설치한것!! (절대 업데이트 X)
+// 1. 설정
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")       
+}
+
+// 2. 모델
+model User {
+  id        String    @id 
+  email     String    @unique
+  nickname  String?
+  createdAt DateTime  @default(now())
+  readings  Reading[]
+}
+
+model Reading {
+  id        Int      @id @default(autoincrement())
+  question  String   // @db.Text는 Postgres에서는 생략해도 긴 글 저장 가능
+  result    String
+  cards     String
+  createdAt DateTime @default(now())
+  card_ids String?
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+}

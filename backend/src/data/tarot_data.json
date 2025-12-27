@@ -1,0 +1,686 @@
+[
+    {
+        "id": 0,
+        "type": "major",
+        "name": "The Fool",
+        "name_kr": "바보",
+        "image_file": "m00.png",
+        "keywords": ["새로운 시작", "순수함", "자유", "모험"]
+    },
+    {
+        "id": 1,
+        "type": "major",
+        "name": "The Magician",
+        "name_kr": "마법사",
+        "image_file": "m01.png",
+        "keywords": ["창조력", "자신감", "재능", "실행"]
+    },
+    {
+        "id": 2,
+        "type": "major",
+        "name": "The High Priestess",
+        "name_kr": "여사제",
+        "image_file": "m02.png",
+        "keywords": ["직관", "신비", "지혜", "무의식"]
+    },
+    {
+        "id": 3,
+        "type": "major",
+        "name": "The Empress",
+        "name_kr": "여황제",
+        "image_file": "m03.png",
+        "keywords": ["풍요", "모성", "자연", "편안함"]
+    },
+    {
+        "id": 4,
+        "type": "major",
+        "name": "The Emperor",
+        "name_kr": "황제",
+        "image_file": "m04.png",
+        "keywords": ["권위", "통제", "책임", "구조"]
+    },
+    {
+        "id": 5,
+        "type": "major",
+        "name": "The Hierophant",
+        "name_kr": "교황",
+        "image_file": "m05.png",
+        "keywords": ["전통", "신념", "교육", "조언"]
+    },
+    {
+        "id": 6,
+        "type": "major",
+        "name": "The Lovers",
+        "name_kr": "연인",
+        "image_file": "m06.png",
+        "keywords": ["사랑", "선택", "조화", "유대"]
+    },
+    {
+        "id": 7,
+        "type": "major",
+        "name": "The Chariot",
+        "name_kr": "전차",
+        "image_file": "m07.png",
+        "keywords": ["승리", "의지", "전진", "자기통제"]
+    },
+    {
+        "id": 8,
+        "type": "major",
+        "name": "Strength",
+        "name_kr": "힘",
+        "image_file": "m08.png",
+        "keywords": ["인내", "용기", "포용", "내면의 힘"]
+    },
+    {
+        "id": 9,
+        "type": "major",
+        "name": "The Hermit",
+        "name_kr": "은둔자",
+        "image_file": "m09.png",
+        "keywords": ["성찰", "고독", "탐구", "신중함"]
+    },
+    {
+        "id": 10,
+        "type": "major",
+        "name": "Wheel of Fortune",
+        "name_kr": "운명의 수레바퀴",
+        "image_file": "m10.png",
+        "keywords": ["변화", "운명", "기회", "순환"]
+    },
+    {
+        "id": 11,
+        "type": "major",
+        "name": "Justice",
+        "name_kr": "정의",
+        "image_file": "m11.png",
+        "keywords": ["공정", "진실", "균형", "책임"]
+    },
+    {
+        "id": 12,
+        "type": "major",
+        "name": "The Hanged Man",
+        "name_kr": "매달린 사람",
+        "image_file": "m12.png",
+        "keywords": ["희생", "인내", "새로운 관점", "정지"]
+    },
+    {
+        "id": 13,
+        "type": "major",
+        "name": "Death",
+        "name_kr": "죽음",
+        "image_file": "m13.png",
+        "keywords": ["종결", "새로운 시작", "변화", "이별"]
+    },
+    {
+        "id": 14,
+        "type": "major",
+        "name": "Temperance",
+        "name_kr": "절제",
+        "image_file": "m14.png",
+        "keywords": ["조화", "균형", "중용", "적응"]
+    },
+    {
+        "id": 15,
+        "type": "major",
+        "name": "The Devil",
+        "name_kr": "악마",
+        "image_file": "m15.png",
+        "keywords": ["속박", "유혹", "집착", "욕망"]
+    },
+    {
+        "id": 16,
+        "type": "major",
+        "name": "The Tower",
+        "name_kr": "탑",
+        "image_file": "m16.png",
+        "keywords": ["파괴", "갑작스런 변화", "혼란", "계시"]
+    },
+    {
+        "id": 17,
+        "type": "major",
+        "name": "The Star",
+        "name_kr": "별",
+        "image_file": "m17.png",
+        "keywords": ["희망", "영감", "평온", "치유"]
+    },
+    {
+        "id": 18,
+        "type": "major",
+        "name": "The Moon",
+        "name_kr": "달",
+        "image_file": "m18.png",
+        "keywords": ["불안", "환상", "무의식", "혼미"]
+    },
+    {
+        "id": 19,
+        "type": "major",
+        "name": "The Sun",
+        "name_kr": "태양",
+        "image_file": "m19.png",
+        "keywords": ["성공", "활력", "긍정", "기쁨"]
+    },
+    {
+        "id": 20,
+        "type": "major",
+        "name": "Judgement",
+        "name_kr": "심판",
+        "image_file": "m20.png",
+        "keywords": ["부활", "보상", "결단", "각성"]
+    },
+    {
+        "id": 21,
+        "type": "major",
+        "name": "The World",
+        "name_kr": "세계",
+        "image_file": "m21.png",
+        "keywords": ["완성", "통합", "성취", "만족"]
+    },
+
+    {
+        "id": 22,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Ace of Wands",
+        "name_kr": "완드 에이스",
+        "image_file": "w01.png",
+        "keywords": ["새로운 열정", "창조적 시작", "기회"]
+    },
+    {
+        "id": 23,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Two of Wands",
+        "name_kr": "완드 2",
+        "image_file": "w02.png",
+        "keywords": ["계획", "진로 결정", "미래 구상"]
+    },
+    {
+        "id": 24,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Three of Wands",
+        "name_kr": "완드 3",
+        "image_file": "w03.png",
+        "keywords": ["확장", "성장", "장기적 전망"]
+    },
+    {
+        "id": 25,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Four of Wands",
+        "name_kr": "완드 4",
+        "image_file": "w04.png",
+        "keywords": ["축하", "안정", "귀환", "평화"]
+    },
+    {
+        "id": 26,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Five of Wands",
+        "name_kr": "완드 5",
+        "image_file": "w05.png",
+        "keywords": ["경쟁", "갈등", "다툼", "도전"]
+    },
+    {
+        "id": 27,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Six of Wands",
+        "name_kr": "완드 6",
+        "image_file": "w06.png",
+        "keywords": ["승리", "인정", "성공", "자신감"]
+    },
+    {
+        "id": 28,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Seven of Wands",
+        "name_kr": "완드 7",
+        "image_file": "w07.png",
+        "keywords": ["방어", "용기", "저항", "유지"]
+    },
+    {
+        "id": 29,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Eight of Wands",
+        "name_kr": "완드 8",
+        "image_file": "w08.png",
+        "keywords": ["신속", "진행", "여행", "소식"]
+    },
+    {
+        "id": 30,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Nine of Wands",
+        "name_kr": "완드 9",
+        "image_file": "w09.png",
+        "keywords": ["끈기", "방어", "지침", "마지막 저항"]
+    },
+    {
+        "id": 31,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Ten of Wands",
+        "name_kr": "완드 10",
+        "image_file": "w10.png",
+        "keywords": ["부담", "책임", "압박", "과로"]
+    },
+    {
+        "id": 32,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Page of Wands",
+        "name_kr": "완드 시종",
+        "image_file": "w11.png",
+        "keywords": ["호기심", "새로운 소식", "열정적인 아이"]
+    },
+    {
+        "id": 33,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Knight of Wands",
+        "name_kr": "완드 기사",
+        "image_file": "w12.png",
+        "keywords": ["행동", "모험", "성급함", "열정"]
+    },
+    {
+        "id": 34,
+        "type": "minor",
+        "suit": "wands",
+        "name": "Queen of Wands",
+        "name_kr": "완드 여왕",
+        "image_file": "w13.png",
+        "keywords": ["자신감", "매력", "독립적", "에너지"]
+    },
+    {
+        "id": 35,
+        "type": "minor",
+        "suit": "wands",
+        "name": "King of Wands",
+        "name_kr": "완드 왕",
+        "image_file": "w14.png",
+        "keywords": ["리더십", "비전", "명예", "창조자"]
+    },
+
+    {
+        "id": 36,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Ace of Cups",
+        "name_kr": "컵 에이스",
+        "image_file": "c01.png",
+        "keywords": ["사랑의 시작", "감정의 넘침", "직관"]
+    },
+    {
+        "id": 37,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Two of Cups",
+        "name_kr": "컵 2",
+        "image_file": "c02.png",
+        "keywords": ["연인", "결합", "파트너십", "화합"]
+    },
+    {
+        "id": 38,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Three of Cups",
+        "name_kr": "컵 3",
+        "image_file": "c03.png",
+        "keywords": ["축배", "우정", "즐거움", "모임"]
+    },
+    {
+        "id": 39,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Four of Cups",
+        "name_kr": "컵 4",
+        "image_file": "c04.png",
+        "keywords": ["권태", "무관심", "성찰", "거절"]
+    },
+    {
+        "id": 40,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Five of Cups",
+        "name_kr": "컵 5",
+        "image_file": "c05.png",
+        "keywords": ["상실", "후회", "실망", "슬픔"]
+    },
+    {
+        "id": 41,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Six of Cups",
+        "name_kr": "컵 6",
+        "image_file": "c06.png",
+        "keywords": ["추억", "순수", "과거", "향수"]
+    },
+    {
+        "id": 42,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Seven of Cups",
+        "name_kr": "컵 7",
+        "image_file": "c07.png",
+        "keywords": ["환상", "선택", "혼란", "꿈"]
+    },
+    {
+        "id": 43,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Eight of Cups",
+        "name_kr": "컵 8",
+        "image_file": "c08.png",
+        "keywords": ["떠남", "포기", "새로운 길", "실망"]
+    },
+    {
+        "id": 44,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Nine of Cups",
+        "name_kr": "컵 9",
+        "image_file": "c09.png",
+        "keywords": ["만족", "소원 성취", "행복", "풍요"]
+    },
+    {
+        "id": 45,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Ten of Cups",
+        "name_kr": "컵 10",
+        "image_file": "c10.png",
+        "keywords": ["가정의 행복", "평화", "완성", "사랑"]
+    },
+    {
+        "id": 46,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Page of Cups",
+        "name_kr": "컵 시종",
+        "image_file": "c11.png",
+        "keywords": ["감수성", "메시지", "호기심", "창의성"]
+    },
+    {
+        "id": 47,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Knight of Cups",
+        "name_kr": "컵 기사",
+        "image_file": "c12.png",
+        "keywords": ["로맨틱", "제안", "이상주의", "매력"]
+    },
+    {
+        "id": 48,
+        "type": "minor",
+        "suit": "cups",
+        "name": "Queen of Cups",
+        "name_kr": "컵 여왕",
+        "image_file": "c13.png",
+        "keywords": ["자애로움", "직관", "감정적", "치유"]
+    },
+    {
+        "id": 49,
+        "type": "minor",
+        "suit": "cups",
+        "name": "King of Cups",
+        "name_kr": "컵 왕",
+        "image_file": "c14.png",
+        "keywords": ["감정 조절", "관대함", "상담자", "평정심"]
+    },
+
+    {
+        "id": 50,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Ace of Swords",
+        "name_kr": "소드 에이스",
+        "image_file": "s01.png",
+        "keywords": ["승리", "명확함", "결단", "새로운 생각"]
+    },
+    {
+        "id": 51,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Two of Swords",
+        "name_kr": "소드 2",
+        "image_file": "s02.png",
+        "keywords": ["균형", "교착 상태", "회피", "결정 보류"]
+    },
+    {
+        "id": 52,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Three of Swords",
+        "name_kr": "소드 3",
+        "image_file": "s03.png",
+        "keywords": ["상처", "슬픔", "이별", "고통"]
+    },
+    {
+        "id": 53,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Four of Swords",
+        "name_kr": "소드 4",
+        "image_file": "s04.png",
+        "keywords": ["휴식", "회복", "명상", "일시 후퇴"]
+    },
+    {
+        "id": 54,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Five of Swords",
+        "name_kr": "소드 5",
+        "image_file": "s05.png",
+        "keywords": ["패배", "배신", "갈등", "이기적인"]
+    },
+    {
+        "id": 55,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Six of Swords",
+        "name_kr": "소드 6",
+        "image_file": "s06.png",
+        "keywords": ["이동", "회복", "과도기", "도피"]
+    },
+    {
+        "id": 56,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Seven of Swords",
+        "name_kr": "소드 7",
+        "image_file": "s07.png",
+        "keywords": ["기만", "전략", "비밀", "회피"]
+    },
+    {
+        "id": 57,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Eight of Swords",
+        "name_kr": "소드 8",
+        "image_file": "s08.png",
+        "keywords": ["구속", "두려움", "무력감", "고립"]
+    },
+    {
+        "id": 58,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Nine of Swords",
+        "name_kr": "소드 9",
+        "image_file": "s09.png",
+        "keywords": ["악몽", "불안", "죄책감", "고뇌"]
+    },
+    {
+        "id": 59,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Ten of Swords",
+        "name_kr": "소드 10",
+        "image_file": "s10.png",
+        "keywords": ["종결", "배신", "고통의 끝", "파멸"]
+    },
+    {
+        "id": 60,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Page of Swords",
+        "name_kr": "소드 시종",
+        "image_file": "s11.png",
+        "keywords": ["경계", "호기심", "새로운 생각", "정보"]
+    },
+    {
+        "id": 61,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Knight of Swords",
+        "name_kr": "소드 기사",
+        "image_file": "s12.png",
+        "keywords": ["돌진", "용감", "성급함", "직설적"]
+    },
+    {
+        "id": 62,
+        "type": "minor",
+        "suit": "swords",
+        "name": "Queen of Swords",
+        "name_kr": "소드 여왕",
+        "image_file": "s13.png",
+        "keywords": ["독립적", "명확함", "냉철함", "직관"]
+    },
+    {
+        "id": 63,
+        "type": "minor",
+        "suit": "swords",
+        "name": "King of Swords",
+        "name_kr": "소드 왕",
+        "image_file": "s14.png",
+        "keywords": ["지성", "권위", "진실", "공정함"]
+    },
+
+    {
+        "id": 64,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Ace of Pentacles",
+        "name_kr": "펜타클 에이스",
+        "image_file": "p01.png",
+        "keywords": ["물질적 시작", "기회", "번영", "안정"]
+    },
+    {
+        "id": 65,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Two of Pentacles",
+        "name_kr": "펜타클 2",
+        "image_file": "p02.png",
+        "keywords": ["균형", "적응", "유연성", "변동"]
+    },
+    {
+        "id": 66,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Three of Pentacles",
+        "name_kr": "펜타클 3",
+        "image_file": "p03.png",
+        "keywords": ["협력", "기술", "팀워크", "숙련"]
+    },
+    {
+        "id": 67,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Four of Pentacles",
+        "name_kr": "펜타클 4",
+        "image_file": "p04.png",
+        "keywords": ["소유", "집착", "안정", "통제"]
+    },
+    {
+        "id": 68,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Five of Pentacles",
+        "name_kr": "펜타클 5",
+        "image_file": "p05.png",
+        "keywords": ["결핍", "고립", "어려움", "불안"]
+    },
+    {
+        "id": 69,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Six of Pentacles",
+        "name_kr": "펜타클 6",
+        "image_file": "p06.png",
+        "keywords": ["나눔", "자선", "관용", "균형"]
+    },
+    {
+        "id": 70,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Seven of Pentacles",
+        "name_kr": "펜타클 7",
+        "image_file": "p07.png",
+        "keywords": ["인내", "투자", "수확 대기", "평가"]
+    },
+    {
+        "id": 71,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Eight of Pentacles",
+        "name_kr": "펜타클 8",
+        "image_file": "p08.png",
+        "keywords": ["장인정신", "노력", "디테일", "학습"]
+    },
+    {
+        "id": 72,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Nine of Pentacles",
+        "name_kr": "펜타클 9",
+        "image_file": "p09.png",
+        "keywords": ["풍요", "독립", "사치", "성취"]
+    },
+    {
+        "id": 73,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Ten of Pentacles",
+        "name_kr": "펜타클 10",
+        "image_file": "p10.png",
+        "keywords": ["가문", "유산", "부", "장기적 성공"]
+    },
+    {
+        "id": 74,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Page of Pentacles",
+        "name_kr": "펜타클 시종",
+        "image_file": "p11.png",
+        "keywords": ["학습", "새로운 기회", "실용성", "호기심"]
+    },
+    {
+        "id": 75,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Knight of Pentacles",
+        "name_kr": "펜타클 기사",
+        "image_file": "p12.png",
+        "keywords": ["성실", "책임감", "신중함", "노력"]
+    },
+    {
+        "id": 76,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "Queen of Pentacles",
+        "name_kr": "펜타클 여왕",
+        "image_file": "p13.png",
+        "keywords": ["관대함", "풍요", "현실적", "돌봄"]
+    },
+    {
+        "id": 77,
+        "type": "minor",
+        "suit": "pentacles",
+        "name": "King of Pentacles",
+        "name_kr": "펜타클 왕",
+        "image_file": "p14.png",
+        "keywords": ["성공", "부", "신뢰", "경영"]
+    }
+]
