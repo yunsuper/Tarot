@@ -51,6 +51,7 @@ export default function TarotCard({ imageFile, name, isRevealed = false, isRever
           <img
             src={getCardImgPath(imageFile)}
             alt={name}
+            fetchPriority={imageFile === "m00.png" ? "high" : "auto"}
             className="w-full h-full object-cover transition-transform duration-500"
             // ✅ Tailwind 클래스 대신 직접 스타일을 주입하여 강제로 회전시킵니다.
             style={{

@@ -59,6 +59,7 @@ export class AppService {
     return this.tarotDeck;
   }
 
+  // ✅ Fisher-Yates Shuffle 핵심 알고리즘 응용 (완벽한 무작위성)
   drawCards(count: number): DrawnCard[] {
     const deck = [...this.tarotDeck];
     for (let i = deck.length - 1; i > 0; i--) {
@@ -71,7 +72,7 @@ export class AppService {
     }));
   }
 
-  // ✅ userId 파라미터 추가 및 DB 저장 로직 통합
+  // userId 파라미터 추가 및 DB 저장 로직 통합
   async getReading(
     question: string,
     cards: { name: string; isReversed: boolean }[],
@@ -115,14 +116,14 @@ export class AppService {
       const result = await this.model.generateContent(prompt);
       const response = result.response;
 
-      // ✅ 해결 1: 재할당 안 하므로 let 대신 const 사용
+      // 해결 1: 재할당 안 하므로 let 대신 const 사용
       const text = response
         .text()
         .replace(/```json/g, '')
         .replace(/```/g, '')
         .trim();
 
-      // ✅ 해결 2: JSON.parse 결과에 타입을 명시하여 'any' 에러 방지
+      // 해결 2: JSON.parse 결과에 타입을 명시하여 'any' 에러 방지
       const parsedResult = JSON.parse(text) as {
         summary: string;
         detail: string;
