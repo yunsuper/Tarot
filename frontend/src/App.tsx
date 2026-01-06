@@ -5,6 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 const Home = lazy(() => import("./pages/Home"));
 const Question = lazy(() => import("./pages/Question"));
 const Result = lazy(() => import("./pages/Result/Result"));
+const Shuffle = lazy(() => import("./pages/Shuffle"));
+const HistoryPage = lazy(() => import("./pages/History/HistoryPage"));
+
 
 export default function App() {
   return (
@@ -14,7 +17,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/question" element={<Question />} />
+          <Route path="/shuffle" element={<Shuffle />} />
           <Route path="/result" element={<Result />} />
+          <Route path="/history" element={<HistoryPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
