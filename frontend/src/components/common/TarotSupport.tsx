@@ -8,11 +8,11 @@ export default function TarotSupport() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="max-w-md mx-auto my-16 p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg text-center shadow-2xl"
+      className="w-full max-w-lg mx-auto p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg text-center shadow-2xl"
     >
       <div className="text-4xl mb-4">🔮</div>
       <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-3">

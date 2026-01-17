@@ -67,7 +67,7 @@ export default function Result() {
         <CardResultList cards={selectedCards} />
         <InterpretationTabs result={result} selectedCards={selectedCards} />
 
-        <div className="mt-12 flex flex-col items-center w-full gap-8">
+        <div className="mt-10 flex flex-col items-center w-full gap-4">
           <div className="flex gap-4 w-full max-w-lg">
             <button
               onClick={handleRetry} //  핸들러 연결
