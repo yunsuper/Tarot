@@ -28,7 +28,7 @@ export default function Question() {
 
     return (
         <BaseLayout>
-            <div className="w-full flex flex-col items-center py-10 px-6">
+            <div className="w-full flex flex-col items-center py-8 px-6">
                 {/* 뒤로가기 버튼 */}
                 <div className="w-full max-w-md flex justify-start mb-6">
                     <button

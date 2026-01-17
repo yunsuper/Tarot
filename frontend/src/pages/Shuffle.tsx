@@ -36,7 +36,7 @@ export default function Shuffle() {
 
     return (
         <BaseLayout>
-            <div className="flex flex-col items-center py-10 px-4 w-full">
+            <div className="flex flex-col items-center py-8 px-4 w-full">
                 {/* 상단 안내 메시지 */}
                 <div className="text-center mb-8 z-10">
                     <h2 className="text-2xl font-serif font-bold mb-2">

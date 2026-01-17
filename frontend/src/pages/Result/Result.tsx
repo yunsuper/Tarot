@@ -87,7 +87,7 @@ export default function Result() {
 
           <button
             onClick={() => navigate("/history")}
-            className="w-full max-w-xs bg-white/5 text-slate-400 py-3 rounded-xl font-medium border border-white/10 text-sm mb-10"
+            className="w-full max-w-xs bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 py-3 rounded-xl font-bold border border-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.1)] transition-all mb-10"
           >
             🔮 내가 본 타로 내역 보기
           </button>
