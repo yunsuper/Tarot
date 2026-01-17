@@ -7,6 +7,7 @@ import type { TarotPageState } from "../../components/common/types";
 import { useTarotStore } from "../../store/useTarotStore";
 import { useEffect, useState } from "react";
 import { supabase } from "../../utils/supabaseClient";
+import TarotSupport from "../../components/common/TarotSupport";
 
 // 분리된 컴포넌트 임포트
 import ResultLoading from "./ResultLoading";
@@ -81,6 +82,9 @@ export default function Result() {
               결과 공유하기 🔗
             </button>
           </div>
+
+          <TarotSupport />
+
           <button
             onClick={() => navigate("/history")}
             className="w-full max-w-xs bg-white/5 text-slate-400 py-3 rounded-xl font-medium border border-white/10 text-sm mb-10"
