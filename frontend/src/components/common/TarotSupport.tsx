@@ -1,6 +1,7 @@
 // frontend/src/components/common/TarotSupport.tsx
 import { motion } from "framer-motion";
 import { track } from "@vercel/analytics";
+import qrImage from "../../assets/images/kakao-qr.png";
 
 export default function TarotSupport() {
   // 카카오페이 송금 고정 링크
@@ -26,17 +27,30 @@ export default function TarotSupport() {
         <strong>AI(Gemini) 운영 비용</strong>으로 소중히 사용됩니다.
       </p>
 
-      <motion.a
-        href={KAKAO_PAY_LINK}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => track("Donation_Button_Click")}
-        whileHover={{ scale: 1.05, backgroundColor: "#F7E100" }}
-        whileTap={{ scale: 0.95 }}
-        className="block w-full py-4 bg-[#FFEB00] text-black font-extrabold rounded-2xl shadow-lg transition-colors text-lg"
-      >
-        카카오페이로 복채 보내기
-      </motion.a>
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+        {/* PC 사용자용 QR 코드 (이미지 최적화 적용) */}
+        <div className="bg-white p-2 rounded-xl shadow-inner w-32 h-32 hidden md:block overflow-hidden">
+          <img src={qrImage} alt="KakaoPay QR" className="w-full h-full object-contain" />
+          <p className="text-[10px] text-slate-500 mt-1">PC 스캔용</p>
+        </div>
+
+        {/* 모바일 사용자용 버튼 */}
+        <div className="flex-1 w-full text-left">
+          <motion.a
+            href={KAKAO_PAY_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            // 3. track 함수를 여기서 사용하여 에러 해결 및 클릭 분석 활성화
+            onClick={() => track("Donation_Button_Click")}
+            whileHover={{ scale: 1.05, backgroundColor: "#F7E100" }}
+            whileTap={{ scale: 0.95 }}
+            className="block w-full py-4 bg-[#FFEB00] text-black font-extrabold rounded-2xl shadow-lg transition-colors text-lg"
+          >
+            카카오페이 송금하기
+          </motion.a>
+          <p className="mt-2 text-[11px] text-slate-400 text-center md:text-left">* 모바일은 클릭, PC는 QR 스캔</p>
+        </div>
+      </div>
 
       <p className="mt-4 text-[10px] text-slate-500 uppercase tracking-widest">Thank you for supporting this project</p>
     </motion.div>
