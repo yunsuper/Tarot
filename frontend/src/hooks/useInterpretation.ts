@@ -24,7 +24,7 @@ export const useInterpretation = (
 
   useEffect(() => {
     // 1. 준비가 안 됐거나, 카드가 없거나, ✨이미 결과가 스토어에 있으면 실행 안 함
-    if (!isReady || selectedCards.length === 0 || result ) {
+    if (!isReady || selectedCards.length === 0 /* || result */) {
       setIsLoading(false);
       return;
     }
