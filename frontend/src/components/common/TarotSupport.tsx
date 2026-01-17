@@ -43,7 +43,7 @@ export default function TarotSupport() {
             onClick={() => track("Donation_Button_Click")}
             whileHover={{ scale: 1.05, backgroundColor: "#F7E100" }}
             whileTap={{ scale: 0.95 }}
-            className="block w-full py-4 bg-[#FFEB00] text-black font-extrabold rounded-2xl shadow-lg transition-colors text-lg"
+            className="flex items-center justify-center w-full py-4 bg-[#FFEB00] text-black font-extrabold rounded-2xl shadow-lg transition-colors text-lg"
           >
             카카오페이 송금하기
           </motion.a>
