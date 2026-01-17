@@ -17,13 +17,20 @@ import InterpretationTabs from "./InterpretationTabs";
 export default function Result() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { clearSession } = useTarotStore();
+  const { result: storedResult, clearSession } = useTarotStore();
   const state = location.state as TarotPageState;
   const { category = "general", question = "질문이 없습니다.", selectedCards = [] } = state || {};
 
   const [userId, setUserId] = useState<string | undefined>(undefined);
   const [userEmail, setUserEmail] = useState<string | undefined>(undefined);
   const [isSessionLoaded, setIsSessionLoaded] = useState(false); //  세션 확인 완료 여부 (DB에 중복저장 막기 위해)
+
+  useEffect(() => {
+    if (storedResult) {
+      clearSession();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // 처음 진입 시 1회 실행
 
   // 1. 로그인된 유저의 UUID 가져오기
   useEffect(() => {
