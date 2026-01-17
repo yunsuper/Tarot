@@ -1,7 +1,6 @@
 // frontend/src/components/common/TarotSupport.tsx
 import { motion } from "framer-motion";
 import { track } from "@vercel/analytics";
-import qrImage from "../../assets/images/kakao-qr.png";
 
 export default function TarotSupport() {
   // 카카오페이 송금 고정 링크
@@ -30,7 +29,7 @@ export default function TarotSupport() {
       <div className="flex flex-col md:flex-row items-center justify-center gap-6">
         {/* PC 사용자용 QR 코드 (이미지 최적화 적용) */}
         <div className="bg-white p-2 rounded-xl shadow-inner w-32 h-32 hidden md:block overflow-hidden">
-          <img src={qrImage} alt="KakaoPay QR" className="w-full h-full object-contain" />
+          <img src="/kakao-qr.png" alt="KakaoPay QR" className="w-full h-full object-contain" />
           <p className="text-[10px] text-slate-500 mt-1">PC 스캔용</p>
         </div>
 
