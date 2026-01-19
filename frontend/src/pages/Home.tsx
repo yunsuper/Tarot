@@ -41,7 +41,7 @@ export default function Home() {
           animate={{ y: [0, -15, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
-          <TarotCard imageFile="m00.png" name="Welcome Tarot" />
+          <TarotCard imageFile="m00.webp" name="Welcome Tarot" />
         </motion.div>
 
         {/* 설명 텍스트 */}

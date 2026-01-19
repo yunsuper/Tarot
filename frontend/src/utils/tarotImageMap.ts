@@ -20,6 +20,6 @@ export const getTarotImageById = (id: number): string => {
         return `/cards/${card.image_file}`;
     }
 
-    // 4. 못 찾았을 경우의 방어 로직 (이것도 /cards/ 폴더 안의 back.png)
-    return `/cards/back.png`;
+    // 4. 못 찾았을 경우의 방어 로직 (이것도 /cards/ 폴더 안의 back.webp)
+    return `/cards/back.webp`;
 };

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { getCardImgPath } from "../../utils/imageHandler"; // ✅ 유틸 함수 불러오기
 
 interface TarotCardProps {
-  imageFile: string; // 예: "m00.png"
+  imageFile: string; // 예: "m00.webp"
   name: string; // 예: "The Fool"
   isRevealed?: boolean; // 외부에서 뒤집힘 제어
   isReversed?: boolean;
@@ -51,7 +51,7 @@ export default function TarotCard({ imageFile, name, isRevealed = false, isRever
           <img
             src={getCardImgPath(imageFile)}
             alt={name}
-            fetchPriority={imageFile === "m00.png" ? "high" : "auto"}
+            fetchPriority={imageFile === "m00.webp" ? "high" : "auto"}
             className="w-full h-full object-cover transition-transform duration-500"
             // ✅ Tailwind 클래스 대신 직접 스타일을 주입하여 강제로 회전시킵니다.
             style={{
