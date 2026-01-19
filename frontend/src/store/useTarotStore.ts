@@ -9,7 +9,6 @@ interface TarotState {
     category: string;
     selectedCards: CardData[];
     result: InterpretationResult | null;
-    // 액션(함수)들
     setSession: (q: string, cat: string, cards: CardData[]) => void;
     setResult: (res: InterpretationResult) => void;
     clearSession: () => void;
@@ -26,7 +25,7 @@ export const useTarotStore = create<TarotState>((set) => ({
             question: q,
             category: cat,
             selectedCards: cards,
-            result: null, // 새로운 세션 시작 시 이전 결과 초기화
+            result: null,
         }),
     setResult: (res) => set({ result: res }),
     clearSession: () =>

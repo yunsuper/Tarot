@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { GoogleGenerativeAI, GenerativeModel } from '@google/generative-ai';
-import { ReadingService } from './reading.service'; // ✅ ReadingService 임포트
+import { ReadingService } from './reading.service';
 import * as tarotDataRaw from './data/tarot_data.json';
 
 export interface InterpretationResult {
@@ -33,10 +33,9 @@ export class AppService {
 
   constructor(
     private configService: ConfigService,
-    private readingService: ReadingService, // ✅ ReadingService 주입
+    private readingService: ReadingService,
   ) {
     const apiKey = this.configService.get<string>('GEMINI_API_KEY') || '';
-    console.log('🔑 .env 키 로드 완료');
 
     this.genAI = new GoogleGenerativeAI(apiKey);
     this.model = this.genAI.getGenerativeModel({
@@ -59,7 +58,6 @@ export class AppService {
     return this.tarotDeck;
   }
 
-  // ✅ Fisher-Yates Shuffle 핵심 알고리즘 응용 (완벽한 무작위성)
   drawCards(count: number): DrawnCard[] {
     const deck = [...this.tarotDeck];
     for (let i = deck.length - 1; i > 0; i--) {
@@ -72,13 +70,11 @@ export class AppService {
     }));
   }
 
-  // userId 파라미터 추가 및 DB 저장 로직 통합
   async getReading(
     question: string,
     cards: { name: string; isReversed: boolean }[],
-    userId?: string, // ✅ 컨트롤러에서 넘겨받을 ID
+    userId?: string,
   ): Promise<InterpretationResult> {
-    // 1. 카드 정보 컨텍스트 구성
     const cardsInfo = cards.map((c, i) => {
       const originalCard = this.tarotDeck.find((tc) => tc.name === c.name);
       const position = ['과거', '현재', '미래'][i];
@@ -92,7 +88,6 @@ export class AppService {
       return `${position}: ${c.name}(${originalCard?.name_kr}) - [${direction}]: 키워드 ${keywords}`;
     });
 
-    // 2. 신비로운 타로 마스터 프롬프트 설정
     const prompt = `
       당신은 질문자의 기운을 읽고 운명의 실타래를 풀어주는 신비롭고 권위 있는 타로 마스터입니다.
       사용자의 질문: "${question}"
@@ -118,18 +113,15 @@ export class AppService {
     `;
 
     try {
-      // 3. AI 해석 생성
       const result = await this.model.generateContent(prompt);
       const response = result.response;
 
-      // 해결 1: 재할당 안 하므로 let 대신 const 사용
       const text = response
         .text()
         .replace(/```json/g, '')
         .replace(/```/g, '')
         .trim();
 
-      // 해결 2: JSON.parse 결과에 타입을 명시하여 'any' 에러 방지
       const parsedResult = JSON.parse(text) as {
         summary: string;
         detail: string;
@@ -140,15 +132,12 @@ export class AppService {
         detail: parsedResult.detail || '해석을 불러오지 못했습니다.',
       };
 
-      // 4. DB에 결과 저장
       await this.readingService.createReading({
         userId,
         question,
         result: interpretation.detail,
         cards,
       });
-
-      console.log('✅ DB 저장 완료 (userId:', userId || 'Guest', ')');
 
       return interpretation;
     } catch (error) {

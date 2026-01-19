@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../utils/supabaseClient";
 import TarotSupport from "../../components/common/TarotSupport";
 
-// 분리된 컴포넌트 임포트
 import ResultLoading from "./ResultLoading";
 import CardResultList from "./CardResultList";
 import InterpretationTabs from "./InterpretationTabs";
@@ -23,16 +22,15 @@ export default function Result() {
 
   const [userId, setUserId] = useState<string | undefined>(undefined);
   const [userEmail, setUserEmail] = useState<string | undefined>(undefined);
-  const [isSessionLoaded, setIsSessionLoaded] = useState(false); //  세션 확인 완료 여부 (DB에 중복저장 막기 위해)
+  const [isSessionLoaded, setIsSessionLoaded] = useState(false);
 
   useEffect(() => {
     if (storedResult) {
       clearSession();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // 처음 진입 시 1회 실행
+  }, []); 
 
-  // 1. 로그인된 유저의 UUID 가져오기
   useEffect(() => {
     const getSession = async () => {
       const {
@@ -42,22 +40,20 @@ export default function Result() {
         setUserId(session.user.id);
         setUserEmail(session.user.email);
       }
-      setIsSessionLoaded(true); // 로그인이든 비로그인이든 확인이 끝나면 true
+      setIsSessionLoaded(true);
     };
     getSession();
   }, []);
 
-  // 2. 세션 확인이 끝났을 때만 실행 (로그인 시 ID 전달, 비로그인 시 undefined 전달)
   const { isLoading, result } = useInterpretation(isSessionLoaded, question, selectedCards, userId, userEmail);
 
   const { shareResult } = useShare();
 
   const handleRetry = () => {
-    clearSession(); // 스토어 데이터를 비워야 새로고침 방어 로직이 리셋됨
+    clearSession();
     navigate("/");
   };
 
-  // 3. ResultLoading에 messages전달은 ResultLoading에서 담당
   if (isLoading || !isSessionLoaded) return <ResultLoading />;
 
   return (
@@ -77,7 +73,7 @@ export default function Result() {
         <div className="mt-10 flex flex-col items-center w-full gap-4">
           <div className="flex gap-4 w-full max-w-lg">
             <button
-              onClick={handleRetry} //  핸들러 연결
+              onClick={handleRetry}
               className="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-4 rounded-xl font-bold transition-colors"
             >
               다시 하기

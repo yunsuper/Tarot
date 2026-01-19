@@ -4,23 +4,20 @@ import TarotCard from "../components/tarot/TarotCard";
 import { useCardDraw } from "../hooks/useCardDraw";
 import BaseLayout from "../components/layout/BaseLayout";
 import type { TarotPageState } from "../components/common/types";
-import { getCardImgPath } from "../utils/imageHandler"; // ✅ 유틸 함수 import
+import { getCardImgPath } from "../utils/imageHandler";
 
 export default function Shuffle() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // 1. location.state를 안전하게 받기
     const state = location.state as TarotPageState;
 
-    // 데이터가 없을 경우 기본값 설정
     const { category, question, spreadType } = state || {
         category: "general",
         question: "질문이 없습니다.",
         spreadType: 3,
     };
 
-    // 2. 커스텀 훅 사용
     const { deck, selectedCards, drawCard } = useCardDraw({
         spreadType: spreadType,
         onComplete: (cards) => {
@@ -37,7 +34,6 @@ export default function Shuffle() {
     return (
         <BaseLayout>
             <div className="flex flex-col items-center py-8 px-4 w-full">
-                {/* 상단 안내 메시지 */}
                 <div className="text-center mb-8 z-10">
                     <h2 className="text-2xl font-serif font-bold mb-2">
                         {selectedCards.length < spreadType
@@ -50,7 +46,6 @@ export default function Shuffle() {
                     </p>
                 </div>
 
-                {/* 3. 선택된 카드들이 놓이는 슬롯 (Upper Area) */}
                 <div className="flex gap-4 mb-12 h-40 md:h-56 items-center justify-center w-full max-w-4xl min-h-[160px]">
                     <AnimatePresence>
                         {selectedCards.map((card, index) => (
@@ -66,7 +61,6 @@ export default function Shuffle() {
                                 }}
                                 className="w-24 md:w-32"
                             >
-                                {/* 선택된 카드는 TarotCard 컴포넌트 내부에서 getCardImgPath를 사용하므로 그대로 두면 된다 */}
                                 <TarotCard
                                     imageFile={card.image_file}
                                     name={card.name}
@@ -90,7 +84,6 @@ export default function Shuffle() {
                     </AnimatePresence>
                 </div>
 
-                {/* 4. 덱 (카드 뒷면들이 쫙 깔려있는 영역) */}
                 <div className="w-full max-w-6xl pb-10">
                     <motion.div
                         className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-12 gap-1 sm:gap-2"
@@ -112,7 +105,6 @@ export default function Shuffle() {
                                 className="cursor-pointer"
                             >
                                 <div className="w-full aspect-[2/3] rounded bg-indigo-900 border border-white/10 overflow-hidden shadow-sm relative group">
-                                    {/* 하드코딩 제거: 유틸 함수 사용: 이미지핸들러 */}
                                     <img
                                         src={getCardImgPath("")}
                                         alt="Card Back"

@@ -15,7 +15,6 @@ describe('AppController', () => {
   });
 
   it('should be defined', () => {
-    // Controller가 정상적으로 생성되는지 확인.
     expect(appController).toBeDefined();
   });
 });

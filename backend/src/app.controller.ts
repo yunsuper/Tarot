@@ -4,7 +4,6 @@ import { PrismaService } from './prisma/prisma.service';
 
 @Controller()
 export class AppController {
-  // 환경변수에서 API 키를 가져와서 설정합니다.
   private genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
 
   constructor(private readonly prisma: PrismaService) {}
@@ -23,12 +22,10 @@ export class AppController {
       email?: string;
     },
   ) {
-    console.log('받은 카드 데이터:', body.cards);
     const cardIdsData = body.cards
       .map((c) => (c.id !== undefined ? c.id : ''))
       .join(',');
 
-    // 1. 프론트엔드에서 보낸 상세 카드 정보(방향 포함)를 텍스트로 정리
     const cardContext = body.cards
       .map((c, i) => {
         const position = ['과거', '현재', '미래'][i];
@@ -37,7 +34,6 @@ export class AppController {
       })
       .join(', ');
 
-    // 2. 고품질 해석을 위한 상세 프롬프트 설정
     const model = this.genAI.getGenerativeModel({
       model: 'gemini-flash-latest',
     });
@@ -59,11 +55,9 @@ export class AppController {
          - 중요한 단어는 **볼드체**로 강조하고, 문단 사이에는 반드시 이중 줄바꿈(\\n\\n)을 넣어 가독성을 높이세요.
     `;
 
-    // 3. AI 해석 생성
     const result = await model.generateContent(prompt);
     const aiResponse = result.response.text();
 
-    //  4. 유저 정보를 먼저 동기화
     if (body.userId && body.email) {
       await this.prisma.user.upsert({
         where: { id: body.userId },
@@ -75,13 +69,12 @@ export class AppController {
       });
     }
 
-    // 5. AI가 생성한 '진짜 해석'을 DB에 저장
     const savedReading = await this.prisma.reading.create({
       data: {
         question: body.question,
         cards: cardContext,
         result: aiResponse,
-        card_ids: cardIdsData, // 고정 문구가 아닌 AI의 상세 해석 저장
+        card_ids: cardIdsData,
         userId: body.userId || null,
       },
     });
@@ -89,12 +82,10 @@ export class AppController {
     return savedReading;
   }
 
-  // 유저 자동 등록
   @Get('history')
   async getHistory(@Query('userId') userId?: string) {
-    // 👈 쿼리 파라미터로 id를 받음
     return await this.prisma.reading.findMany({
-      where: userId ? { userId: userId } : {}, // 👈 ID가 있으면 내 것만 필터링!
+      where: userId ? { userId: userId } : {},
       orderBy: { createdAt: 'desc' },
     });
   }

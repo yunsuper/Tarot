@@ -1,5 +1,4 @@
 // ✅ 버전 v5.22에 맞게 확장모드 설치한것!! (절대 업데이트 X)
-// 1. 설정
 generator client {
   provider = "prisma-client-js"
 }
@@ -9,7 +8,6 @@ datasource db {
   url      = env("DATABASE_URL")       
 }
 
-// 2. 모델
 model User {
   id        String    @id 
   email     String    @unique

@@ -2,12 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import BaseLayout from "../components/layout/BaseLayout";
-import { CATEGORIES } from "../components/common/constants"; // ✅ 상수 가져오기
+import { CATEGORIES } from "../components/common/constants";
 
 export default function Question() {
     const navigate = useNavigate();
-
-    // 기본값 설정 (constants의 첫 번째 아이디 사용)
     const [category, setCategory] = useState<string>(CATEGORIES[0].id);
     const [question, setQuestion] = useState("");
     const [spreadType, setSpreadType] = useState<"1" | "3">("3");
@@ -29,7 +27,6 @@ export default function Question() {
     return (
         <BaseLayout>
             <div className="w-full flex flex-col items-center py-8 px-6">
-                {/* 뒤로가기 버튼 */}
                 <div className="w-full max-w-md flex justify-start mb-6">
                     <button
                         onClick={() => navigate(-1)}
@@ -44,13 +41,11 @@ export default function Question() {
                     animate={{ opacity: 1, y: 0 }}
                     className="w-full max-w-md space-y-8"
                 >
-                    {/* 1. 카테고리 선택 (하드코딩 제거됨) */}
                     <section>
                         <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
                             1. 주제를 선택해주세요
                         </h2>
                         <div className="grid grid-cols-4 gap-2">
-                            {/* ✅ 상수를 map으로 돌려서 렌더링 */}
                             {CATEGORIES.map((item) => (
                                 <button
                                     key={item.id}
@@ -73,7 +68,6 @@ export default function Question() {
                         </div>
                     </section>
 
-                    {/* 2. 질문 입력 */}
                     <section>
                         <h2 className="text-xl font-bold mb-4">
                             2. 무엇이 궁금하신가요?
@@ -97,7 +91,6 @@ export default function Question() {
                         )}
                     </section>
 
-                    {/* 3. 스프레드 선택 */}
                     <section>
                         <h2 className="text-xl font-bold mb-4">
                             3. 카드 선택 방식
@@ -139,7 +132,6 @@ export default function Question() {
                         </div>
                     </section>
 
-                    {/* 다음 버튼 */}
                     <button
                         onClick={handleNext}
                         disabled={!isValid}

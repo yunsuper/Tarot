@@ -18,21 +18,17 @@ const HistoryPage = () => {
     useEffect(() => {
       const fetchHistory = async () => {
         try {
-          // 1. Supabase에서 현재 로그인한 유저 ID 가져오기
           const {
             data: { session },
           } = await supabase.auth.getSession();
 
-          // 2. 비로그인 유저 처리
           if (!session?.user) {
-            // 알람 없이 즉시 메인으로 이동하되, 'fromForbidden'이라는 꼬리표를 붙여줍니다.
             navigate("/", { state: { fromForbidden: true } });
             return;
           }
 
           const userId = session.user.id;
 
-          // 3. userId를 쿼리 스트링으로 전달 (백엔드 @Query('userId')와 매칭)
           const response = await client.get(`/history`, {
             params: { userId },
           });
@@ -68,10 +64,8 @@ const HistoryPage = () => {
 
         <div className="grid gap-4 max-w-2xl mx-auto w-full">
           {history.length > 0 ? (
-            // ✅ 1. 기록이 있을 때: 리스트 출력
             history.map((item: TarotReading) => <HistoryListItem key={item.id} item={item} onClick={setSelectedItem} />)
           ) : (
-            // ✅ 2. 기록이 없을 때: 안내 문구 출력
             <div className="text-center py-20 bg-white/5 rounded-2xl border border-white/10">
               <p className="text-slate-400 mb-4">아직 기록된 운명이 없습니다.</p>
               <Link to="/" className="text-indigo-400 hover:text-indigo-300 font-medium underline underline-offset-4">

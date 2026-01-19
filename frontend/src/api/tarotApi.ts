@@ -1,7 +1,6 @@
 import { client } from "./axiosConfig";
 import type { CardData, InterpretationResult } from "../components/common/types";
 
-// userId 파라미터 추가
 export const fetchTarotReading = async (
   question: string,
   selectedCards: CardData[],
@@ -14,22 +13,14 @@ export const fetchTarotReading = async (
     isReversed: c.isReversed ?? false,
   }));
 
-  console.log("실제 서버로 요청 보냄:", {
-    question,
-    cards: formattedCards,
-    userId: userId || "Guest",
-    email: email || "Guest", // 로그 확인
-  });
-
   try {
     const response = await client.post<InterpretationResult>("/reading", {
       question,
       cards: formattedCards,
-      userId, // 백엔드 바디(Body)에 userId 포함
+      userId,
       email,
     });
 
-    console.log("서버 응답 도착:", response.data);
     return response.data;
   } catch (error) {
     console.error("API 요청 에러:", error);
