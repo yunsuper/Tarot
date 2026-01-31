@@ -15,7 +15,7 @@ Gemini AI를 활용하여 사용자의 고민을 깊이 있게 해석해주는 �
 https://tarot-mauve.vercel.app
 - 배포 아키텍처:
   - Front-end: Vercel (Auto Deployment)
-  - Back-end: Railway (Express/Node.js)
+  - Back-end: Render (NestJS 서버 호스팅)
   - Database: Supabase
 
 
@@ -36,6 +36,7 @@ https://tarot-mauve.vercel.app
 ### Frontend
 - **Framework**: React (TypeScript)
 - **Routing**: React Router
+- **Build Tool**: Vite
 - **Data Fetching**: Axios
 - **Styling**: Tailwind CSS
 - **Animation**: Framer Motion
@@ -49,6 +50,8 @@ https://tarot-mauve.vercel.app
 - **ORM**: Prisma
 - **Communication**: Axios
 - **Auth/Storage**: Supabase
+- ** Hosting**: Render
+- **AI Integration**: Google Gemini 2.5 Flash (Generative AI API)
 
 ---
 
@@ -93,7 +96,7 @@ https://tarot-mauve.vercel.app
 | `GET` | `/tarot/history/:id` | 특정 타로 해석 결과 상세 조회 |
 
 ### 🧠 AI 연동 로직 (AI Integration)
-- **Service Layer**: NestJS의 Service에서 `GoogleGenerativeAI` 라이브러리를 통해 Gemini 2.0 Flash 모델과 통신
+- **Service Layer**: NestJS의 Service에서 `GoogleGenerativeAI` 라이브러리를 통해 Gemini 2.5 Flash 모델과 통신
 - **System Instructions**: AI가 일관된 타로 마스터의 톤앤매너를 유지하도록 시스템 프롬프트를 정교화
 - **Schema Enforcement**: 
   - AI가 반드시 정해진 JSON 구조로 응답하도록 **Response Schema** 설정
@@ -106,7 +109,7 @@ https://tarot-mauve.vercel.app
 - **Tarot Card Images**: 본 프로젝트에 사용된 타로 카드 실물 이미지(PNG)는 **나노바나나(Nanobanana)**의 에셋을 활용하여 제작되었습니다.
 - **Author**: [yunsuper](https://github.com/본인계정) (Full-stack Development)
 - **License**: [MIT License](./LICENSE) - 본 프로젝트는 MIT 라이선스를 따르며, 자유로운 이용과 수정이 가능합니다.
-- **AI Disclaimer**: 본 프로젝트의 타로 해석 결과는 **Google Gemini 2.0 Flash** 모델에 의해 생성되었습니다. AI의 해석은 참고용일 뿐이며, 법적·의학적·전문적 조언을 대신할 수 없습니다.
+- **AI Disclaimer**: 본 프로젝트의 타로 해석 결과는 **Google Gemini 2.5 Flash** 모델에 의해 생성되었습니다. AI의 해석은 참고용일 뿐이며, 법적·의학적·전문적 조언을 대신할 수 없습니다.
 
 ## 🤖 AI Aided Development
 - 본 프로젝트의 코드 설계 및 최적화 과정에서 AI 기술(Gemini)을 보조 도구로 활용하여 코드 품질을 향상시켰습니다.
