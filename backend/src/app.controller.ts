@@ -35,7 +35,7 @@ export class AppController {
       .join(', ');
 
     const model = this.genAI.getGenerativeModel({
-      model: 'gemini-flash-latest',
+      model: 'gemini-3-flash-preview',
     });
     const prompt = `
       당신은 질문자의 기운을 읽고 운명의 실타래를 풀어주는 신비롭고 권위 있는 타로 마스터입니다.
