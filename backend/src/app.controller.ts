@@ -1,10 +1,11 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+// app.controller.ts
+import { GoogleGenAI } from '@google/genai';
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { PrismaService } from './prisma/prisma.service';
 
 @Controller()
 export class AppController {
-  private genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '');
+  private ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
 
   constructor(private readonly prisma: PrismaService) {}
 
@@ -34,10 +35,6 @@ export class AppController {
       })
       .join(', ');
 
-    const model = this.genAI.getGenerativeModel({
-      model: 'gemini-3-flash-preview',
-      // model: 'gemini-flash-latest',
-    });
     const prompt = `
       당신은 질문자의 기운을 읽고 운명의 실타래를 풀어주는 신비롭고 권위 있는 타로 마스터입니다.
       사용자의 질문: "${body.question}"
@@ -56,8 +53,11 @@ export class AppController {
          - 중요한 단어는 **볼드체**로 강조하고, 문단 사이에는 반드시 이중 줄바꿈을 넣어 가독성을 높이세요.
     `;
 
-    const result = await model.generateContent(prompt);
-    const aiResponse = result.response.text();
+    const result = await this.ai.models.generateContent({
+      model: 'gemini-3.1-flash-lite', // 모델명 업데이트
+      contents: prompt,
+    });
+    const aiResponse = result.text || '해석을 가져오는 데 실패했습니다.';
 
     if (body.userId && body.email) {
       await this.prisma.user.upsert({

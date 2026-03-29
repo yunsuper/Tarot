@@ -1,6 +1,8 @@
+// app.service.ts
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { GoogleGenerativeAI, GenerativeModel } from '@google/generative-ai';
+import { GoogleGenAI } from '@google/genai';
+// import { GoogleGenerativeAI, GenerativeModel } from '@google/generative-ai';
 import { ReadingService } from './reading.service';
 import * as tarotDataRaw from './data/tarot_data.json';
 
@@ -27,8 +29,7 @@ interface TarotDataImport {
 
 @Injectable()
 export class AppService {
-  private genAI: GoogleGenerativeAI;
-  private model: GenerativeModel;
+  private ai: GoogleGenAI;
   private tarotDeck: TarotCard[];
 
   constructor(
@@ -37,10 +38,7 @@ export class AppService {
   ) {
     const apiKey = this.configService.get<string>('GEMINI_API_KEY') || '';
 
-    this.genAI = new GoogleGenerativeAI(apiKey);
-    this.model = this.genAI.getGenerativeModel({
-      model: 'gemini-3-flash-preview',
-    });
+    this.ai = new GoogleGenAI({ apiKey });
 
     const rawData = tarotDataRaw as unknown as TarotDataImport;
     if (rawData.default && Array.isArray(rawData.default)) {
@@ -113,11 +111,14 @@ export class AppService {
     `;
 
     try {
-      const result = await this.model.generateContent(prompt);
-      const response = result.response;
+      const result = await this.ai.models.generateContent({
+        model: 'gemini-3.1-flash-lite',
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      });
 
-      const text = response
-        .text()
+      const responseText = result.text || '';
+
+      const text = responseText
         .replace(/```json/g, '')
         .replace(/```/g, '')
         .trim();
