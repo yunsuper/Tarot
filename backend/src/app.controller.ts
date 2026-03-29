@@ -54,7 +54,7 @@ export class AppController {
     `;
 
     const result = await this.ai.models.generateContent({
-      model: 'gemini-3.1-flash-lite', // 모델명 업데이트
+      model: 'gemini-3.1-flash-lite-preview', // 모델명 업데이트
       contents: prompt,
     });
     const aiResponse = result.text || '해석을 가져오는 데 실패했습니다.';
