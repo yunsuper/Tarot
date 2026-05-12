@@ -51,7 +51,7 @@ https://tarot-mauve.vercel.app
 - **Communication**: Axios
 - **Auth/Storage**: Supabase
 - ** Hosting**: Render
-- **AI Integration**: Google Gemini 3.1 Flash-Lite-preview (@google/genai SDK)
+- **AI Integration**: Google Gemini 3.1 Flash-Lite (@google/genai SDK)
 
 ---
 
@@ -74,7 +74,7 @@ https://tarot-mauve.vercel.app
 
 ##  핵심 구현 포인트 (Core Implementation)
 
-### 1. Gemini 3.1 flash-lite-preview 기반 AI 타로 리딩
+### 1. Gemini 3.1 Flash-Lite 기반 AI 타로 리딩
 - **프롬프트 엔지니어링**: 타로 마스터의 페르소나를 정밀하게 설정하여 일관성 있고 신뢰감 있는 해석 제공
 - **구조화된 데이터 응답**: AI의 응답을 JSON 포맷으로 강제하여 프론트엔드에서 즉시 UI 요소(카드 의미, 조언, 총평 등)로 활용 가능하도록 설계
 
