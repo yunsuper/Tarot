@@ -44,13 +44,14 @@ https://tarot-mauve.vercel.app
 - **State Management**: Zustand
 
 ### Backend
+- **Runtime**: Node.js 24.22.1+ (LTS)
 - **Framework**: NestJS (Node.js)
 - **Language**: TypeScript
 - **Database**: PostgreSQL (Supabase)
 - **ORM**: Prisma
 - **Communication**: Axios
 - **Auth/Storage**: Supabase
-- ** Hosting**: Render
+- **Hosting**: Render
 - **AI Integration**: Google Gemini 3.1 Flash-Lite (@google/genai SDK)
 
 ---
@@ -69,18 +70,18 @@ https://tarot-mauve.vercel.app
 ## 서비스 아키텍처 (Service Architecture)
 - **Client**: React + Vite (SPA)
 - **Server**: NestJS (REST API)
-- **AI**: Google Gemini API (Stream/JSON Mode)
+- **AI**: Google Gemini API (`@google/genai`, Markdown 텍스트 응답)
 - **DB/Auth**: Supabase (PostgreSQL)
 
 ##  핵심 구현 포인트 (Core Implementation)
 
 ### 1. Gemini 3.1 Flash-Lite 기반 AI 타로 리딩
 - **프롬프트 엔지니어링**: 타로 마스터의 페르소나를 정밀하게 설정하여 일관성 있고 신뢰감 있는 해석 제공
-- **구조화된 데이터 응답**: AI의 응답을 JSON 포맷으로 강제하여 프론트엔드에서 즉시 UI 요소(카드 의미, 조언, 총평 등)로 활용 가능하도록 설계
+- **가독성 중심의 응답 형식**: 도입 → 카드별 심층 해석 → 종합적 운명의 흐름 → 마스터의 비책 구조로, 이모지·볼드체·문단 구분을 포함한 Markdown 텍스트로 응답하도록 프롬프트에서 지정
 
 ### 2. 하이브리드 세션 관리 (로그인 & 비로그인)
 - **사용자 경험 최적화**: 비로그인 상태에서도 타로 해석을 즉시 볼 수 있도록 `isSessionLoaded` 상태 로직 구현
-- **데이터 자동 동기화**: 로그인 사용자일 경우 해석 결과를 Supabase DB에 실시간 저장하여 마이페이지(History)에서 확인 가능하도록 구현
+- **데이터 자동 동기화**: 모든 해석 결과를 Supabase DB에 저장하며, 로그인 사용자의 결과는 사용자 ID와 연결되어 마이페이지(History)에서 확인 가능하도록 구현
 
 ### 3. 몰입감 있는 UI/UX 설계
 - **애니메이션**: `Framer Motion`을 활용하여 실제 타로 카드를 뽑는 듯한 생동감 있는 인터랙션 구현
@@ -91,23 +92,22 @@ https://tarot-mauve.vercel.app
 ### AI Interpretation
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| `POST` | `/tarot/interpretation` | 질문과 선택한 카드를 전달하여 Gemini AI의 해석 결과 생성 |
-| `GET` | `/tarot/history` | 로그인한 사용자의 과거 타로 저장 내역 조회 |
-| `GET` | `/tarot/history/:id` | 특정 타로 해석 결과 상세 조회 |
+| `POST` | `/reading` | 질문과 선택한 카드(`id`, `name`, `isReversed`)를 전달하면 Gemini AI의 해석 결과를 생성하고 DB에 저장 (로그인 시 `userId`, `email` 함께 전달) |
+| `GET` | `/history` | 저장된 타로 내역을 최신순으로 조회 (`?userId=` 쿼리로 해당 사용자의 기록만 조회) |
 
 ### 🧠 AI 연동 로직 (AI Integration)
-- **Service Layer**: NestJS의 Service에서 `GoogleGenerativeAI` 라이브러리를 통해 Gemini 3.1 Flash-lite 모델과 통신
-- **System Instructions**: AI가 일관된 타로 마스터의 톤앤매너를 유지하도록 시스템 프롬프트를 정교화
-- **Schema Enforcement**: 
-  - AI가 반드시 정해진 JSON 구조로 응답하도록 **Response Schema** 설정
-  - 이를 통해 프론트엔드에서 파싱 에러 없이 즉시 데이터를 렌더링할 수 있는 안정성 확보
+- **SDK**: Google 공식 `@google/genai` SDK의 `GoogleGenAI` 클라이언트로 `gemini-3.1-flash-lite` 모델과 통신
+- **호출 위치**: NestJS `AppController`의 `POST /reading` 핸들러에서 Gemini 호출 → Prisma로 결과 저장까지 한 번에 처리
+- **Prompt Design**: 
+  - 과거·현재·미래 위치와 정/역방향 정보를 프롬프트에 함께 담아 카드 맥락을 전달
+  - 말투, 분량(15~20문장), 섹션 구조, 이모지·볼드체 사용 규칙을 프롬프트에 명시하여 일관된 타로 마스터의 톤앤매너 유지
   
 ---
 
 ## ⚖️ License & Credits
 - **Tarot Design Standard**: 전 세계 표준인 **라이더 웨이트(Rider-Waite) 타로**의 상징 체계와 규격을 바탕으로 설계되었습니다.
 - **Tarot Card Images**: 본 프로젝트에 사용된 타로 카드 실물 이미지(PNG)는 **나노바나나(Nanobanana)**의 에셋을 활용하여 제작되었습니다.
-- **Author**: [yunsuper](https://github.com/본인계정) (Full-stack Development)
+- **Author**: [yunsuper](https://github.com/yunsuper) (Full-stack Development)
 - **License**: [MIT License](./LICENSE) - 본 프로젝트는 MIT 라이선스를 따르며, 자유로운 이용과 수정이 가능합니다.
 - **AI Disclaimer**: 본 프로젝트의 타로 해석 결과는 **Google Gemini 3.1 Flash-lite** 모델에 의해 생성되었습니다. AI의 해석은 참고용일 뿐이며, 법적·의학적·전문적 조언을 대신할 수 없습니다.
 
